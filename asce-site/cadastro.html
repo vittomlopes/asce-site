@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro | ASCE</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #eafaff, #fffde5);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 460px;
+      background: white;
+      border-radius: 18px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 12px 40px #0002;
+    }
+
+    img {
+      width: 85px;
+    }
+
+    h1 {
+      color: #0757a5;
+    }
+
+    p {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    form {
+      margin-top: 25px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      margin: 12px 0 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 15px;
+      background: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 22px;
+      background: #0757a5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #003e80;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #0757a5;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="card">
+    <img src="escudo-asce.png" alt="Escudo ASCE">
+
+    <h1>Cadastro de Associado</h1>
+
+    <p>
+      Preencha seus dados para solicitar
+      associação à ASCE.
+    </p>
+
+    <form id="cadastroForm">
+
+      <label for="nome">Nome completo</label>
+      <input id="nome" type="text"
+             autocomplete="name" required>
+
+      <label for="email">E-mail</label>
+      <input id="email" type="email"
+             autocomplete="email" required>
+
+      <label for="telefone">Telefone / WhatsApp</label>
+      <input id="telefone" type="tel"
+             autocomplete="tel" required>
+
+      <label for="perfil">Perfil</label>
+      <select id="perfil" required>
+        <option value="">Selecione</option>
+        <option value="surdo">Pessoa surda</option>
+        <option value="ouvinte">Pessoa ouvinte</option>
+        <option value="outro">Outro / Prefiro não informar</option>
+      </select>
+
+      <label for="senha">Criar senha</label>
+      <input id="senha" type="password"
+             minlength="8"
+             autocomplete="new-password" required>
+
+      <label for="confirmar">Confirmar senha</label>
+      <input id="confirmar" type="password"
+             minlength="8"
+             autocomplete="new-password" required>
+
+      <button type="submit">
+        Solicitar Cadastro
+      </button>
+    </form>
+
+    <a href="login.html">
+      ← Já tenho cadastro
+    </a>
+  </main>
+
+  <script>
+    document.getElementById("cadastroForm")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const senha = document.getElementById("senha").value;
+        const confirmar = document.getElementById("confirmar").value;
+
+        if (senha !== confirmar) {
+          alert("As senhas não são iguais.");
+          return;
+        }
+
+        alert(
+          "Formulário de demonstração. " +
+          "O cadastro ainda não foi enviado."
+        );
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar | ASCE</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #f0fbff, #fffde8);
+      min-height: 100vh;
+    }
+
+    header {
+      max-width: 950px;
+      margin: 10px auto;
+      padding: 10px 22px;
+      background: white;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 20px #0001;
+    }
+
+    header img {
+      height: 45px;
+    }
+
+    header a {
+      color: #0757a5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      min-height: calc(100vh - 90px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+    }
+
+    .card {
+      background: white;
+      width: 100%;
+      max-width: 390px;
+      border-radius: 18px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 12px 40px #0002;
+    }
+
+    .logo {
+      width: 85px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    form {
+      margin-top: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    input:focus {
+      outline: 2px solid #00aeef;
+      border-color: transparent;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #0757a5;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #003e80;
+    }
+
+    .link {
+      display: block;
+      margin-top: 18px;
+      color: #0757a5;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .divisor {
+      margin: 25px 0;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .cadastro {
+      background: #ffe500;
+      color: #172033;
+      display: block;
+      padding: 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .cadastro:hover {
+      background: #f2d900;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html">
+      <img src="escudo-asce.png" alt="ASCE">
+    </a>
+    <a href="index.html">← Voltar ao início</a>
+  </header>
+
+  <main>
+    <div class="card">
+      <img class="logo"
+           src="escudo-asce.png"
+           alt="Escudo da ASCE">
+
+      <h1>Acesso ao Sistema</h1>
+
+      <p>
+        Associados e diretoria da ASCE.
+        Entre com seu e-mail e senha.
+      </p>
+
+      <form id="loginForm">
+        <input
+          type="email"
+          placeholder="E-mail"
+          aria-label="E-mail"
+          autocomplete="email"
+          required
+        >
+
+        <input
+          type="password"
+          placeholder="Senha"
+          aria-label="Senha"
+          autocomplete="current-password"
+          required
+        >
+
+        <button type="submit">
+          Entrar no Sistema
+        </button>
+      </form>
+
+      <a href="#" class="link" id="recuperar">
+        Esqueci minha senha
+      </a>
+
+      <div class="divisor"></div>
+
+      <p>Ainda não é associado?</p>
+
+      <a href="cadastro.html" class="cadastro">
+        Cadastre-se
+      </a>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("loginForm")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+        alert("Login disponível após configurar o sistema.");
+      });
+
+    document.getElementById("recuperar")
+      .addEventListener("click", function(event) {
+        event.preventDefault();
+        alert("Recuperação de senha ainda não configurada.");
+      });
+  </script>
+
+</body>
+</html>

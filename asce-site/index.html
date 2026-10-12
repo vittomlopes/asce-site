@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCE | Associação dos Surdos do Ceará</title>
+
+  <style>
+    :root {
+      --azul: #00aeef;
+      --azul-escuro: #0757a5;
+      --amarelo: #ffe500;
+      --texto: #202638;
+      --cinza: #64748b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--texto);
+      background: white;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* MENU */
+    header {
+      position: fixed;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1100px, 94%);
+      background: white;
+      border-radius: 16px;
+      padding: 10px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 5px 25px #0002;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      color: var(--azul-escuro);
+    }
+
+    .logo img {
+      height: 48px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--azul-escuro);
+    }
+
+    .btn {
+      display: inline-block;
+      border-radius: 30px;
+      padding: 12px 24px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-amarelo {
+      background: var(--amarelo);
+      color: #172033;
+    }
+
+    .btn-branco {
+      background: white;
+      color: var(--azul-escuro);
+    }
+
+    .btn-contorno {
+      border: 1px solid white;
+      color: white;
+      background: transparent;
+    }
+
+    /* INICIO */
+    .hero {
+      min-height: 720px;
+      padding: 150px 20px 120px;
+      background: linear-gradient(
+        125deg,
+        #0757a5,
+        #00aeef 65%,
+        #36d2ef
+      );
+      color: white;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 0 45% 4% / 0 0 5% 3%;
+    }
+
+    .hero img {
+      width: 170px;
+      max-width: 50%;
+      height: auto;
+      margin-bottom: 22px;
+      filter: drop-shadow(0 10px 14px #0003);
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 50px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 550px;
+      margin: 0 auto 30px;
+      font-size: 17px;
+    }
+
+    .botoes {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* SECOES */
+    section {
+      padding: 90px 0;
+      scroll-margin-top: 90px;
+    }
+
+    .titulo {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      background: #e5f7ff;
+      color: var(--azul-escuro);
+      border-radius: 30px;
+      padding: 5px 15px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .titulo h2 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .titulo p {
+      color: var(--cinza);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 35px 25px;
+      text-align: center;
+      background: white;
+      box-shadow: 0 8px 25px #00000008;
+    }
+
+    .card .icone {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      border-radius: 15px;
+      background: #e5f7ff;
+      font-size: 27px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--cinza);
+    }
+
+    .fundo-claro {
+      background: #f7fbff;
+    }
+
+    .eventos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .evento {
+      border: 1px solid #e2e8f0;
+      border-radius: 15px;
+      padding: 30px;
+      background: white;
+    }
+
+    .evento h3 {
+      margin-bottom: 8px;
+    }
+
+    .evento p {
+      color: var(--cinza);
+    }
+
+    .centro {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* CONTATO */
+    .contato {
+      text-align: center;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .contato p {
+      margin-bottom: 20px;
+      color: var(--cinza);
+    }
+
+    /* RODAPE */
+    footer {
+      background: #202638;
+      color: white;
+      padding: 55px 0 20px;
+    }
+
+    .rodape {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+      color: var(--amarelo);
+    }
+
+    footer p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .copyright {
+      border-top: 1px solid #ffffff25;
+      padding-top: 20px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* CELULAR */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px;
+      }
+
+      nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding-top: 200px;
+        min-height: 680px;
+      }
+
+      .cards,
+      .eventos,
+      .rodape {
+        grid-template-columns: 1fr;
+      }
+
+      .titulo h2 {
+        font-size: 28px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENU -->
+  <header>
+    <a href="#inicio" class="logo">
+      <img src="escudo-asce.png" alt="Escudo ASCE">
+      <span>ASCE</span>
+    </a>
+
+
+<nav>
+  <a href="#historia">Nossa História</a>
+  <a href="#eventos">Eventos</a>
+  <a href="#transparencia">Transparência</a>
+  <a href="#contato">Contato</a>
+
+  <a href="cadastro.html" class="btn btn-amarelo">
+    Ser Sócio
+  </a>
+
+  <a href="login.html" class="btn btn-entrar">
+    ➜ Entrar
+  </a>
+</nav>
+</header>
+
+  
+<!-- PAGINA INICIAL -->
+<main>
+  <div class="hero" id="inicio">
+    <div>
+      <img src="escudo-asce.png"
+           alt="Associação dos Surdos do Ceará">
+
+      <h1>
+        Associação dos Surdos<br>
+        do Ceará
+      </h1>
+
+      <p>
+        Promovendo inclusão, acessibilidade,
+        cultura surda, esporte e direitos da
+        comunidade surda cearense desde 1983.
+      </p>
+
+      <div class="botoes">
+        <a href="cadastro.html" class="btn btn-branco">
+          ♥ Quero ser Sócio
+        </a>
+
+        <a href="#contato" class="btn btn-contorno">
+          Entrar em Contato
+        </a>
+      </div>
+    </div>
+  </div>
+
+    <!-- HISTORIA -->
+    <section id="historia">
+      <div class="container">
+        <div class="titulo">
+          <span class="etiqueta">QUEM SOMOS</span>
+          <h2>Sobre a ASCE</h2>
+          <p>
+            Uma associação dedicada à comunidade
+            surda do Ceará, fortalecendo a
+            inclusão, a cultura e a cidadania.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icone">📖</div>
+            <h3>Nossa História</h3>
+            <p>
+              Fundada em 30 de abril de 1983,
+              a Associação dos Surdos do Ceará
+              representa uma importante parte
+              da história da comunidade surda
+              cearense.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icone">🤝</div>
+            <h3>Nossa Missão</h3>
+            <p>
+              Promover a inclusão social,
+              a valorização da Libras,
+              a educação, o esporte e
+              a participação da comunidade surda.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="icone">💡</div>
+            <h3>Nossa Visão</h3>
+            <p>
+              Fortalecer uma sociedade acessível,
+              inclusiva e respeitosa,
+              valorizando a identidade e
+              a cultura surda.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTOS -->
+    <section id="eventos" class="fundo-claro">
+      <div class="container">
+        <div class="titulo">
+          <span class="etiqueta">AGENDA</span>
+          <h2>Eventos da Comunidade</h2>
+          <p>
+            Encontros, campeonatos, atividades
+            culturais e ações para fortalecer
+            a comunidade surda do Ceará.
+          </p>
+        </div>
+
+        <div class="eventos">
+          <article class="evento">
+            <h3>⚽ Esportes e Campeonatos</h3>
+            <p>
+              Atividades esportivas, futsal
+              e oportunidades de participação
+              para atletas surdos.
+            </p>
+          </article>
+
+          <article class="evento">
+            <h3>🤟 Cultura Surda e Libras</h3>
+            <p>
+              Encontros culturais, atividades
+              em Libras e valorização da
+              identidade surda.
+            </p>
+          </article>
+
+          <article class="evento">
+            <h3>👥 Encontros Sociais</h3>
+            <p>
+              Momentos de convivência,
+              integração e troca de experiências.
+            </p>
+          </article>
+
+          <article class="evento">
+            <h3>📅 Reuniões da Associação</h3>
+            <p>
+              Reuniões e atividades de
+              planejamento da comunidade.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPARENCIA -->
+    <section id="transparencia">
+      <div class="container">
+        <div class="titulo">
+          <span class="etiqueta">INSTITUCIONAL</span>
+          <h2>Transparência</h2>
+          <p>
+            Espaço destinado à divulgação de
+            documentos, informações e
+            atividades institucionais da ASCE.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icone">📄</div>
+            <h3>Estatuto</h3>
+            <p>Documentos institucionais.</p>
+          </article>
+
+          <article class="card">
+            <div class="icone">📊</div>
+            <h3>Prestação de Contas</h3>
+            <p>Informações financeiras.</p>
+          </article>
+
+          <article class="card">
+            <div class="icone">🏛️</div>
+            <h3>Diretoria</h3>
+            <p>Informações sobre a gestão.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASSOCIADOS -->
+    <section id="associados" class="fundo-claro">
+      <div class="container">
+        <div class="titulo">
+          <span class="etiqueta">PARTICIPE</span>
+          <h2>Faça Parte da ASCE</h2>
+          <p>
+            Participe das atividades e ajude
+            a fortalecer a comunidade surda
+            do Ceará.
+          </p>
+        </div>
+
+        <div class="centro">
+          <a href="#contato" class="btn btn-amarelo">
+            Quero ser Associado
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container">
+    <div class="titulo">
+      <span class="etiqueta">FALE CONOSCO</span>
+      <h2>Entre em Contato</h2>
+      <p>
+        Quer participar da ASCE, conhecer nossas
+        atividades ou obter mais informações?
+      </p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="icone">📍</div>
+        <h3>Nosso Endereço</h3>
+        <p>
+          Av. Bezerra de Menezes, 549<br>
+          Farias Brito / Parquelândia<br>
+          Fortaleza - CE<br>
+          CEP: 60325-005
+        </p>
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Av.+Bezerra+de+Menezes+549+Fortaleza+CE"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-contato"
+        >
+          Ver no Google Maps ↗
+        </a>
+      </article>
+
+      <article class="card">
+        <div class="icone">✉️</div>
+        <h3>E-mail Oficial</h3>
+        <p>asceadm01@gmail.com</p>
+        <a
+          href="mailto:asceadm01@gmail.com"
+          class="link-contato"
+        >
+          Enviar E-mail ↗
+        </a>
+      </article>
+
+      <article class="card">
+        <div class="icone">📱</div>
+        <h3>Instagram Oficial</h3>
+        <p>@asce.ce_oficial</p>
+        <a
+          href="https://www.instagram.com/asce.ce_oficial/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-contato"
+        >
+          Acessar Instagram ↗
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+ 
+<!-- RODAPE -->
+<footer>
+  <div class="container">
+    <div class="rodape">
+
+      <div>
+        <h3>ASCE</h3>
+        <p>
+          Associação dos Surdos do Ceará.
+          Inclusão, cultura, esporte
+          e cidadania desde 1983.
+        </p>
+      </div>
+
+      <div>
+        <h3>Contato</h3>
+        <p>
+          📍 Av. Bezerra de Menezes, 549<br>
+          Fortaleza - CE<br>
+          CEP: 60325-005
+        </p>
+        <p>
+          <a href="mailto:asceadm01@gmail.com">
+            ✉️ asceadm01@gmail.com
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <h3>Redes Sociais</h3>
+        <p>
+          Acompanhe as novidades da ASCE.
+        </p>
+        <a
+          href="https://www.instagram.com/asce.ce_oficial/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="instagram-btn"
+        >
+          📷 @asce.ce_oficial
+        </a>
+      </div>
+
+    </div>
+
+    <p class="copyright">
+      © <span id="ano"></span> ASCE —
+      Associação dos Surdos do Ceará.
+      Todos os direitos reservados.
+    </p>
+  </div>
+</footer>
+
+  ↪ Entrar
+</a>
